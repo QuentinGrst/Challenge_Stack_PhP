@@ -106,5 +106,14 @@
         "manager": [
             "Order"
         ]
+    },
+    {
+        "path":"/Order/([0-9]*)/Waiting",
+        "controller":"Order",
+        "action":"VerifyStatus",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ]
     }
 ]
