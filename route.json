@@ -44,7 +44,7 @@
         "controller":"Product",
         "action":"ProductForm",
         "method": "GET",
-        "auth": ["seller, admin"]
+        "auth": ["seller", "admin"]
     },
     {
         "path":"/Product/New",
@@ -64,7 +64,7 @@
         "manager": [
             "Order"
         ],
-        "auth": []
+        "auth": [""]
     },
     {
         "path":"/Order/([0-9]*)",
@@ -85,5 +85,21 @@
             "Order"
         ],
         "auth": []
+    },
+    {
+      "path": "/Seller",
+      "controller": "Seller",
+      "action": "ShowSellerList",
+      "method": "GET",
+      "manager": ["Seller"],
+      "auth": ["seller"]
+    },
+    {
+      "path": "/Seller/([0-9]*)",
+      "controller": "Seller",
+      "action": "ShowSellerByUser",
+      "method": "GET",
+      "manager": ["Seller"],
+      "auth": ["seller"]
     }
 ]
