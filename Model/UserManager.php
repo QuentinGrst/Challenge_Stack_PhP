@@ -5,7 +5,7 @@ class UserManager extends ModelManager{
 
     public function __construct()
     {
-        parent::__construct("user");
+        parent::__construct("users");
     }
 
     public function getByEmail($mail){
