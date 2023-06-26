@@ -1,38 +1,49 @@
 [
-  {
-    "path": "/SignIn",
-    "controller": "Users",
-    "action": "SignInForm",
-    "method": "GET"
-  },
-  {
-    "path": "/SignIn",
-    "controller": "Users",
-    "action": "SignIn",
-    "method": "POST",
-    "manager": ["Users"]
-  },
-  {
-    "path": "/Login",
-    "controller": "Users",
-    "action": "LoginForm",
-    "method": "GET"
-  },
-  {
-    "path": "/Login",
-    "controller": "Users",
-    "action": "Login",
-    "method": "POST",
-    "manager": ["Users"]
-  },
-  {
-    "path": "/Product",
-    "controller": "Product",
-    "action": "ShowProductList",
-    "method": "GET",
-    "manager": ["Product"]
-  },
-
+    {
+        "path": "/",
+        "controller": "Home",
+        "action": "Home",
+        "method": "GET"
+    },
+    {
+        "path": "/Logout",
+        "controller": "Users",
+        "action": "Logout",
+        "method": "GET"
+        },
+    {
+        "path": "/SignIn",
+        "controller": "Users",
+        "action": "SignInForm",
+        "method": "GET" 
+    },
+    {
+        "path": "/SignIn",
+        "controller": "Users",
+        "action": "SignIn",
+        "method": "POST",
+        "manager": ["Users"]
+    },
+    {
+        "path": "/Login",
+        "controller": "Users",
+        "action": "LoginForm",
+        "method": "GET"
+    },
+    {
+        "path": "/Login",
+        "controller": "Users",
+        "action": "Login",
+        "method": "POST",
+        "manager": ["Users"]
+    },
+    {
+        "path": "/Product",
+        "controller": "Product",
+        "action": "ShowProductList",
+        "method": "GET",
+        "manager": ["Product"]
+    },
     {
         "path":"/Product/New",
         "controller":"Product",
@@ -91,19 +102,19 @@
         "auth": [""]
     },
     {
-      "path": "/Seller",
-      "controller": "Seller",
-      "action": "ShowSellerList",
-      "method": "GET",
-      "manager": ["Seller"],
-      "auth": ["seller"]
+    "path": "/Seller",
+    "controller": "Seller",
+    "action": "ShowSellerList",
+    "method": "GET",
+    "manager": ["Seller"],
+    "auth": ["seller"]
     },
     {
-      "path": "/Seller/([0-9]*)",
-      "controller": "Seller",
-      "action": "ShowSellerByUser",
-      "method": "GET",
-      "manager": ["Seller"],
-      "auth": ["seller"]
+    "path": "/Seller/([0-9]*)",
+    "controller": "Seller",
+    "action": "ShowSellerByUser",
+    "method": "GET",
+    "manager": ["Seller"],
+    "auth": ["seller"]
     }
 ]
