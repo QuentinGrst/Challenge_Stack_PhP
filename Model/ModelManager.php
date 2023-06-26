@@ -1,5 +1,6 @@
 <?php
 namespace Model;
+
 class ModelManager
 {
     protected $table;
@@ -64,9 +65,7 @@ class ModelManager
             $req->execute(get_object_vars($obj));
 
             return $req->rowCount() == 1;
-        }
-        else
-        {
+        } else {
             throw new \Exception("id introuvable");
         }
     }

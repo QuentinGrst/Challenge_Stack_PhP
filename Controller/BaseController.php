@@ -7,7 +7,7 @@ class BaseController
 
     protected $route;
     private $params;
-    protected $userManager;
+    protected $usersManager;
     protected $productManager;
 
     public function __construct($route)
@@ -19,9 +19,8 @@ class BaseController
 
     public function loadManager()
     {
-        if(!empty($this->route->manager)){
-            foreach($this->route->manager as $manager)
-            {
+        if (!empty($this->route->manager)) {
+            foreach ($this->route->manager as $manager) {
                 $managerName = $manager . "Manager";
                 $managerClass = "Model\\" . $managerName;
                 $this->{lcfirst($managerName)} = new $managerClass();
@@ -31,12 +30,12 @@ class BaseController
 
     public function View($template)
     {
-        if (file_exists("View/" .$this->route->controller . "/css/$template.css")) {
+        if (file_exists("View/" . $this->route->controller . "/css/$template.css")) {
             $header = '<link rel="stylesheet" href="View/' . $this->route->controller . '/css/' . $template . '.css">';
         }
         ob_start();
         extract($this->params);
-        include "View/". $this->route->controller ."/$template.php";
+        include "View/" . $this->route->controller . "/$template.php";
         $content = ob_get_clean();
         include "View/layout.php";
     }
