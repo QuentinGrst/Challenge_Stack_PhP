@@ -53,7 +53,8 @@
         "method": "POST",
         "manager": [
             "Product"
-        ]
+        ],
+        "auth": ["seller, admin"]
     },
     {
         "path":"/Order",
@@ -62,7 +63,8 @@
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": []
     },
     {
         "path":"/Order/([0-9]*)",
@@ -71,7 +73,8 @@
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": ["admin"]
     },
     {
         "path":"/Order/([0-9]*)/Waiting",
@@ -80,6 +83,7 @@
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": []
     }
 ]
