@@ -1,50 +1,55 @@
 [
     {
-        "path":"/SignIn",
-        "controller":"Users",
-        "action":"SignInForm",
+        "path": "/",
+        "controller": "Home",
+        "action": "Home",
         "method": "GET"
     },
     {
-        "path":"/SignIn",
-        "controller":"Users",
-        "action":"SignIn",
-        "method": "POST",
-        "manager": [
-            "Users"
-        ]
+        "path": "/Logout",
+        "controller": "Users",
+        "action": "Logout",
+        "method": "GET"
+        },
+    {
+        "path": "/SignIn",
+        "controller": "Users",
+        "action": "SignInForm",
+        "method": "GET" 
     },
     {
-        "path":"/Login",
-        "controller":"Users",
-        "action":"LoginForm",
+        "path": "/SignIn",
+        "controller": "Users",
+        "action": "SignIn",
+        "method": "POST",
+        "manager": ["Users"]
+    },
+    {
+        "path": "/Login",
+        "controller": "Users",
+        "action": "LoginForm",
         "method": "GET"
     },
     {
-        "path":"/Login",
-        "controller":"Users",
-        "action":"Login",
+        "path": "/Login",
+        "controller": "Users",
+        "action": "Login",
         "method": "POST",
-        "manager": [
-            "Users"
-        ]
+        "manager": ["Users"]
     },
     {
-        "path":"/Product",
-        "controller":"Product",
-        "action":"ShowProductList",
+        "path": "/Product",
+        "controller": "Product",
+        "action": "ShowProductList",
         "method": "GET",
-        "manager": [
-            "Product"
-        ]
+        "manager": ["Product"]
     },
-
     {
         "path":"/Product/New",
         "controller":"Product",
         "action":"ProductForm",
         "method": "GET",
-        "auth": ["seller, admin"]
+        "auth": ["seller", "admin"]
     },
     {
         "path":"/Product/New",
@@ -53,34 +58,64 @@
         "method": "POST",
         "manager": [
             "Product"
-        ]
+        ],
+        "auth": ["seller, admin"]
     },
     {
-        "path":"/Order",
+        "path":"/Order/all",
         "controller":"Order",
         "action":"ShowOrderList",
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": ["admin"]
+    },
+    {
+        "path":"/Order",
+        "controller":"Order",
+        "action":"ShowUserOrders",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ],
+        "auth": [""]
     },
     {
         "path":"/Order/([0-9]*)",
         "controller":"Order",
-        "action":"ShowOrderByUser",
+        "action":"GetOrderByUser",
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": ["admin"]
     },
     {
-        "path":"/Order/([0-9]*)/Waiting",
+        "path":"/Order/Waiting",
         "controller":"Order",
         "action":"VerifyStatus",
         "method": "GET",
         "manager": [
             "Order"
-        ]
+        ],
+        "auth": [""]
+    },
+    {
+        "path": "/Seller",
+        "controller": "Seller",
+        "action": "ShowSellerList",
+        "method": "GET",
+        "manager": ["Seller"],
+        "auth": ["seller"]
+    },
+    {
+        "path": "/Seller/([0-9]*)",
+        "controller": "Seller",
+        "action": "ShowSellerByUser",
+        "method": "GET",
+        "manager": ["Seller"],
+        "auth": ["seller"]
     },
     {
         "path":"/Product/([0-9]*)/Review",

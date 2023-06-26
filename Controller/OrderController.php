@@ -13,13 +13,31 @@ public function ShowOrderList()
     //$this->View('orderList');
 }
 
-public function ShowOrderByUser($id)
+public function ShowUserOrders()
 {
-    $orderList = $this->orderManager->getByUserId($id);
+    // if (empty($_SESSION["user"]->id)) {
+    //     echo "no user id";
+    //     return false;
+    // }
+    // $userId = $_SESSION["user"]->id;
+    $userId = 1;
+    $orderList = $this->GetOrderByUser($userId);
+    $this->addParam('orders', $orderList);
+    $this->View('orderList');
 }
 
-public function VerifyStatus($userId)
+public function GetOrderByUser($id)
 {
+    return $this->orderManager->getByUserId($id);
+}
+
+public function VerifyStatus()
+{
+    if (empty($_SESSION["user"]->id)) {
+        echo "no user id";
+        return false;
+    }
+    $userId = $_SESSION["user"]->id;
     $order = $this->orderManager->GetOrderByStatus($userId, 0);
     if(!$order)
     {
