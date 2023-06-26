@@ -1,0 +1,13 @@
+.userList {
+    display: flex;
+    gap: 5px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
