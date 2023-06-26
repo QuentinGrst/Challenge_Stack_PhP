@@ -88,5 +88,23 @@
         "manager": [
             "Product"
         ]
+    },
+    {
+        "path":"/Order",
+        "controller":"Order",
+        "action":"ShowOrderList",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ]
+    },
+    {
+        "path":"/Order/([0-9]*)",
+        "controller":"Order",
+        "action":"ShowOrderByUser",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ]
     }
 ]
