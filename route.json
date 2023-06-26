@@ -1,43 +1,37 @@
 [
-    {
-        "path":"/SignIn",
-        "controller":"Users",
-        "action":"SignInForm",
-        "method": "GET"
-    },
-    {
-        "path":"/SignIn",
-        "controller":"Users",
-        "action":"SignIn",
-        "method": "POST",
-        "manager": [
-            "Users"
-        ]
-    },
-    {
-        "path":"/Login",
-        "controller":"Users",
-        "action":"LoginForm",
-        "method": "GET"
-    },
-    {
-        "path":"/Login",
-        "controller":"Users",
-        "action":"Login",
-        "method": "POST",
-        "manager": [
-            "Users"
-        ]
-    },
-    {
-        "path":"/Product",
-        "controller":"Product",
-        "action":"ShowProductList",
-        "method": "GET",
-        "manager": [
-            "Product"
-        ]
-    },
+  {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignInForm",
+    "method": "GET"
+  },
+  {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignIn",
+    "method": "POST",
+    "manager": ["Users"]
+  },
+  {
+    "path": "/Login",
+    "controller": "Users",
+    "action": "LoginForm",
+    "method": "GET"
+  },
+  {
+    "path": "/Login",
+    "controller": "Users",
+    "action": "Login",
+    "method": "POST",
+    "manager": ["Users"]
+  },
+  {
+    "path": "/Product",
+    "controller": "Product",
+    "action": "ShowProductList",
+    "method": "GET",
+    "manager": ["Product"]
+  },
 
     {
         "path":"/Product/New",
