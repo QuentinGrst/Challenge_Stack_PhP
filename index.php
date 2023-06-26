@@ -15,6 +15,7 @@ foreach ($routes as $route) {
         array_push($result, $route);
     }
 }
+
 if (count($result) == 1) {
     if (!empty($result[0]->auth)) {
         if (!isset($_SESSION['user'])) {
