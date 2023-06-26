@@ -57,9 +57,19 @@
         "auth": ["seller, admin"]
     },
     {
-        "path":"/Order",
+        "path":"/Order/all",
         "controller":"Order",
         "action":"ShowOrderList",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ],
+        "auth": ["admin"]
+    },
+    {
+        "path":"/Order",
+        "controller":"Order",
+        "action":"ShowUserOrders",
         "method": "GET",
         "manager": [
             "Order"
@@ -69,7 +79,7 @@
     {
         "path":"/Order/([0-9]*)",
         "controller":"Order",
-        "action":"ShowOrderByUser",
+        "action":"GetOrderByUser",
         "method": "GET",
         "manager": [
             "Order"
@@ -84,6 +94,6 @@
         "manager": [
             "Order"
         ],
-        "auth": []
+        "auth": [""]
     }
 ]
