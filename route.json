@@ -1,36 +1,67 @@
 [
     {
-        "path":"/User",
-        "controller":"User",
-        "action":"ShowUserList",
-        "method": "GET",
-        "manager": [
-            "User"
-        ]
+    "path": "/Users",
+    "controller": "Users",
+    "action": "ShowUsersList",
+    "method": "GET",
+    "manager": ["Users"]
     },
     {
-        "path":"/User/([0-9]*)",
-        "controller":"User",
-        "action":"ShowUser",
-        "method": "GET"
+    "path": "/Users/([0-9]*)",
+    "controller": "Users",
+    "action": "ShowUsers",
+    "method": "GET"
     },
     {
-        "path":"/User",
-        "controller":"User",
-        "action":"CreateUser",
-        "method": "POST"
+    "path": "/Users",
+    "controller": "Users",
+    "action": "CreateUsers",
+    "method": "POST"
     },
     {
-        "path":"/User/update",
-        "controller":"User",
-        "action":"UpdateUser",
-        "method": "POST"
+    "path": "/Users/update",
+    "controller": "Users",
+    "action": "UpdateUsers",
+    "method": "POST"
     },
     {
-        "path":"/User/delete",
-        "controller":"User",
-        "action":"DeleteUser",
-        "method": "GET"
+    "path": "/Users/delete",
+    "controller": "Users",
+    "action": "DeleteUsers",
+    "method": "GET"
+    },
+    {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignInForm",
+    "method": "GET"
+    },
+    {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignIn",
+    "method": "POST",
+    "manager": ["Users"]
+    },
+    {
+    "path": "/Login",
+    "controller": "Users",
+    "action": "LoginForm",
+    "method": "GET"
+    },
+    {
+    "path": "/Login",
+    "controller": "Userss",
+    "action": "Login",
+    "method": "POST",
+    "manager": ["Users"]
+    },
+    {
+    "path": "/Product",
+    "controller": "Product",
+    "action": "ShowProductList",
+    "method": "GET",
+    "manager": ["Product"]
     },
 
     {
@@ -72,7 +103,7 @@
             "Product"
         ]
     },
-    
+
     {
         "path":"/Product/New",
         "controller":"Product",

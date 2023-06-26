@@ -1,7 +1,8 @@
 <?php
 namespace Controller;
 
-class ProductController extends BaseController{
+class ProductController extends BaseController
+{
 
     public function ShowProductList()
     {
