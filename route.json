@@ -81,5 +81,23 @@
         "manager": [
             "Order"
         ]
+    },
+    {
+        "path":"/Product/([0-9]*)/Review",
+        "controller":"ProductReview",
+        "action":"AddReview",
+        "method": "POST",
+        "manager": [
+            "ProductReview"
+        ]
+    },
+    {
+        "path":"/TestReview",
+        "controller":"ProductReview",
+        "action":"ShowForm",
+        "method": "GET",
+        "manager": [
+            "ProductReview"
+        ]
     }
 ]
