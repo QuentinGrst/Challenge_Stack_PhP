@@ -57,15 +57,18 @@ class UsersController extends BaseController
         $this->View("signin");
     }
 
-    function SignIn($mail, $password)
+    function SignIn($mail, $password, $role)
     {
         $user = new \stdClass();
         $user->mail = $mail;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
         $user->pseudo = "test";
+        $user->is_seller = ($role == "vendeur") ? 1 : 0;
+        $user->is_admin = 0;
         if ($this->usersManager->create($user)) {
             echo "Utilisateur créé !";
         }
+
     }
 
     function LoginForm()
@@ -80,6 +83,7 @@ class UsersController extends BaseController
             if (password_verify($password, $user->password)) {
                 unset($user->password);
                 $_SESSION['user'] = $user;
+
             } else {
                 echo "Mot de passe érroné";
                 $this->View("login");
