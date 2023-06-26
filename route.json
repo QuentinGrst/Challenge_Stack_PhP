@@ -77,7 +77,7 @@
         "auth": ["admin"]
     },
     {
-        "path":"/Order/([0-9]*)/Waiting",
+        "path":"/Order/Waiting",
         "controller":"Order",
         "action":"VerifyStatus",
         "method": "GET",
