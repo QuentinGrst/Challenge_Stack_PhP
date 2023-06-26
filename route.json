@@ -30,7 +30,6 @@
     "action": "DeleteUsers",
     "method": "GET"
   },
-
   {
     "path": "/SignIn",
     "controller": "Users",
@@ -78,5 +77,67 @@
     "action": "CreateProduct",
     "method": "POST",
     "manager": ["Product"]
+  },
+  {
+    "path": "/SignIn",
+    "controller": "User",
+    "action": "SignInForm",
+    "method": "GET"
+  },
+  {
+    "path": "/SignIn",
+    "controller": "User",
+    "action": "SignIn",
+    "method": "POST",
+    "manager": ["User"]
+  },
+  {
+    "path": "/Login",
+    "controller": "User",
+    "action": "LoginForm",
+    "method": "GET"
+  },
+  {
+    "path": "/Login",
+    "controller": "User",
+    "action": "Login",
+    "method": "POST",
+    "manager": ["User"]
+  },
+  {
+    "path": "/Product",
+    "controller": "Product",
+    "action": "ShowProductList",
+    "method": "GET",
+    "manager": ["Product"]
+  },
+
+  {
+    "path": "/Product/New",
+    "controller": "Product",
+    "action": "ProductForm",
+    "method": "GET",
+    "auth": ["admin"]
+  },
+  {
+    "path": "/Product/New",
+    "controller": "Product",
+    "action": "CreateProduct",
+    "method": "POST",
+    "manager": ["Product"]
+  },
+  {
+    "path": "/Order",
+    "controller": "Order",
+    "action": "ShowOrderList",
+    "method": "GET",
+    "manager": ["Order"]
+  },
+  {
+    "path": "/Order/([0-9]*)",
+    "controller": "Order",
+    "action": "ShowOrderByUser",
+    "method": "GET",
+    "manager": ["Order"]
   }
 ]

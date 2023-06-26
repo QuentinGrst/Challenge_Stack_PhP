@@ -9,6 +9,7 @@ class BaseController
     private $params;
     protected $usersManager;
     protected $productManager;
+    protected $orderManager;
 
     public function __construct($route)
     {
