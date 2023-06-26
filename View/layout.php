@@ -13,10 +13,16 @@
 <body>
     <header>
         <nav>
-            <ul class="menu">
-                <li><a href="#">Liste des utilisateurs</a></li>
-                <li><a href="SignIn">Ajouter un utilisateur</a></li>
-            </ul>
+            <div class="menu">
+                <div><a href="/">Home</a></div>
+                <?php if (empty($_SESSION['user'])) :  ?>
+                    <div><a href="/SignIn">Inscription</a></div>
+                    <div><a href="/Login">Connexion</a></div>
+                <?php else :  ?>
+                    <div><a href="/Logout">Logout</a></div>
+                <?php endif ?>
+
+            </div>
         </nav>
     </header>
     <div class="content">

@@ -22,29 +22,6 @@ class UsersController extends BaseController
         }
     }
 
-    function CreateUsers()
-    {
-        $user = new \stdClass();
-        $user->mail = "test@test.fr";
-        $user->password = password_hash("imverysecure", PASSWORD_DEFAULT);
-        $user->pseudo = "test";
-        if ($this->usersManager->create($user)) {
-            echo "Utilisateur créé !";
-        }
-    }
-
-    function UpdateUsers()
-    {
-        $user = new \stdClass();
-        $user->id = 3;
-        $user->mail = "test2@test2.fr";
-        $user->password = password_hash("imverysecure", PASSWORD_DEFAULT);
-        $user->pseudo = "test2";
-        if ($this->usersManager->update($user)) {
-            echo "Utilisateur modifié !";
-        }
-    }
-
     function DeleteUsers()
     {
         if ($this->usersManager->delete("3")) {
@@ -54,11 +31,19 @@ class UsersController extends BaseController
 
     function SignInForm()
     {
-        $this->View("signin");
+        if (empty($_SESSION['user'])) {
+            $this->View("signin");
+        } else {
+            header('Location: /');
+        }
     }
 
     function SignIn($mail, $password, $role)
     {
+        if (!empty($_SESSION['user'])) {
+            header('Location: /');
+            return;
+        }
         $user = new \stdClass();
         $user->mail = $mail;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
@@ -73,17 +58,26 @@ class UsersController extends BaseController
 
     function LoginForm()
     {
-        $this->View("login");
+        if (empty($_SESSION['user'])) {
+            $this->View("login");
+        } else {
+            header('Location: /');
+        }
     }
 
     function Login($mail, $password)
     {
+        if (!empty($_SESSION['user'])) {
+            header('Location: /');
+            return;
+        }
         $user = $this->usersManager->getByEmail($mail);
         if ($user) {
             if (password_verify($password, $user->password)) {
                 unset($user->password);
                 $_SESSION['user'] = $user;
-
+                $_SESSION['user']->role = ($user->is_admin == 1) ? "admin" : (($user->is_seller == 1) ? "seller" : "client");
+                header('Location: /');
             } else {
                 echo "Mot de passe érroné";
                 $this->View("login");
@@ -93,5 +87,10 @@ class UsersController extends BaseController
             $this->View("login");
         }
 
+    }
+
+    function Logout() {
+        unset($_SESSION['user']);
+        header('Location: /');
     }
 }
