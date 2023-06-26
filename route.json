@@ -1,97 +1,32 @@
 [
     {
-    "path": "/Users",
-    "controller": "Users",
-    "action": "ShowUsersList",
-    "method": "GET",
-    "manager": ["Users"]
-    },
-    {
-    "path": "/Users/([0-9]*)",
-    "controller": "Users",
-    "action": "ShowUsers",
-    "method": "GET"
-    },
-    {
-    "path": "/Users",
-    "controller": "Users",
-    "action": "CreateUsers",
-    "method": "POST"
-    },
-    {
-    "path": "/Users/update",
-    "controller": "Users",
-    "action": "UpdateUsers",
-    "method": "POST"
-    },
-    {
-    "path": "/Users/delete",
-    "controller": "Users",
-    "action": "DeleteUsers",
-    "method": "GET"
-    },
-    {
-    "path": "/SignIn",
-    "controller": "Users",
-    "action": "SignInForm",
-    "method": "GET"
-    },
-    {
-    "path": "/SignIn",
-    "controller": "Users",
-    "action": "SignIn",
-    "method": "POST",
-    "manager": ["Users"]
-    },
-    {
-    "path": "/Login",
-    "controller": "Users",
-    "action": "LoginForm",
-    "method": "GET"
-    },
-    {
-    "path": "/Login",
-    "controller": "Userss",
-    "action": "Login",
-    "method": "POST",
-    "manager": ["Users"]
-    },
-    {
-    "path": "/Product",
-    "controller": "Product",
-    "action": "ShowProductList",
-    "method": "GET",
-    "manager": ["Product"]
-    },
-
-    {
         "path":"/SignIn",
-        "controller":"User",
+        "controller":"Users",
         "action":"SignInForm",
         "method": "GET"
     },
     {
         "path":"/SignIn",
-        "controller":"User",
+        "controller":"Users",
         "action":"SignIn",
         "method": "POST",
         "manager": [
-            "User"
+            "Users"
         ]
     },
     {
         "path":"/Login",
-        "controller":"User",
+        "controller":"Users",
         "action":"LoginForm",
         "method": "GET"
     },
     {
         "path":"/Login",
-        "controller":"User",
+        "controller":"Users",
         "action":"Login",
         "method": "POST",
         "manager": [
-            "User"
+            "Users"
         ]
     },
     {
@@ -109,7 +44,7 @@
         "controller":"Product",
         "action":"ProductForm",
         "method": "GET",
-        "auth": ["admin"]
+        "auth": ["seller, admin"]
     },
     {
         "path":"/Product/New",
