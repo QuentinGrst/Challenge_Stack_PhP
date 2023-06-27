@@ -71,7 +71,7 @@ class UsersController extends BaseController
             echo "<script>alert('Un compte existe déjà avec cette email');</script>";
         } else {
             if ($this->usersManager->create($user)) {
-                echo "Utilisateur créé !";
+                $this->View("login", "Compte créé ! Veuillez vous connecter");
             }
         }
     }

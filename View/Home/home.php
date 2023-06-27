@@ -1,4 +1,4 @@
-<div>
+<div class="home_page">
     <h2>HOME</h2>
-    <h3><?= $_SESSION['user']->role ?? 'not connected' ?></h3>
+    <h3></h3>
 </div>
