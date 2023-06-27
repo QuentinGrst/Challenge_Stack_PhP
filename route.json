@@ -102,19 +102,47 @@
         "auth": ["client", "seller", "admin"]
     },
     {
-    "path": "/Seller",
-    "controller": "Seller",
-    "action": "ShowSellerList",
-    "method": "GET",
-    "manager": ["Seller"],
-    "auth": ["seller"]
+        "path": "/Seller",
+        "controller": "Seller",
+        "action": "ShowSellerList",
+        "method": "GET",
+        "manager": ["Seller"],
+        "auth": ["seller"]
     },
     {
-    "path": "/Seller/([0-9]*)",
-    "controller": "Seller",
-    "action": "ShowSellerByUser",
-    "method": "GET",
-    "manager": ["Seller"],
-    "auth": ["seller"]
+        "path": "/Seller/([0-9]*)",
+        "controller": "Seller",
+        "action": "ShowSellerByUser",
+        "method": "GET",
+        "manager": ["Seller"],
+        "auth": ["seller"]
+    },
+    {
+        "path":"/Product/([0-9]*)/Review",
+        "controller":"ProductReview",
+        "action":"AddReview",
+        "method": "POST",
+        "manager": [
+            "ProductReview"
+        ]
+    },
+    {
+        "path":"/TestReview",
+        "controller":"ProductReview",
+        "action":"ShowForm",
+        "method": "GET",
+        "manager": [
+            "ProductReview"
+        ]
+    },
+    {
+        "path":"/Product/Basket",
+        "controller":"Order",
+        "action":"AddProductToOrder",
+        "method": "GET",
+        "manager": [
+            "Order" 
+        ]
     }
+
 ]

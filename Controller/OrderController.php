@@ -48,7 +48,33 @@ public function VerifyStatus()
             "user_id"=>$userId,
             "datetime"=>(new DateTime())->format('c')
         ]);
+        $order = $this->orderManager->GetOrderByStatus($userId, 0);
     }
+    return $order->id;
+}
+
+public function AddProductToOrder($productId)
+{
+    $orderId = $this->orderManager->VerifyStatus();
+    $res = $this->orderManager->VerifyIfExist($productId,$orderId);
+    if($res->num_rows=1)
+    {
+        $this->orderElementsManager->update([
+            "order_id"=>$orderId,
+            "quantity"=>$res->quantity+1
+        ]);
+    }
+    else
+    {
+        $this->orderElementsManager->create([
+            "order_id"=>$orderId,
+            "product_id"=>$productId,
+            "date"=>(new DateTime())->format('c'),
+            "quantity"=>1
+        ]);
+    }
+    
+    
 }
 
 /*public function OrderForm()

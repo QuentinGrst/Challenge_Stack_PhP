@@ -59,11 +59,10 @@ class ModelManager
             $sql .= implode(", ", $properties);
             $sql .= " WHERE id= :id";
 
-            echo $sql;
+            //echo $sql;
             $req = $this->bdd->prepare($sql);
 
             $req->execute(get_object_vars($obj));
-
             return $req->rowCount() == 1;
         } else {
             throw new \Exception("id introuvable");
