@@ -15,15 +15,32 @@ public function ShowOrderList()
 
 public function ShowUserOrders()
 {
-    // if (empty($_SESSION["user"]->id)) {
-    //     echo "no user id";
-    //     return false;
-    // }
-    // $userId = $_SESSION["user"]->id;
-    $userId = 1;
+    if (empty($_SESSION["user"]->id)) {
+        echo "no user id";
+        return false;
+    }
+    $userId = $_SESSION["user"]->id;
     $orderList = $this->GetOrderByUser($userId);
+    $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
+    $orderElements = $orderElementsController->GetOrderElementsByUser($userId);
+
     $this->addParam('orders', $orderList);
+    $this->addParam('orderElems', $orderElements);
     $this->View('orderList');
+}
+
+public function ShowBasket()
+{
+    if (empty($_SESSION["user"]->id)) {
+        echo "no user id";
+        return false;
+    }
+    $userId = $_SESSION["user"]->id;
+    $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
+    $orderElements = $orderElementsController->GetElementsByOrder($userId);
+    var_dump($orderElements);
+    $this->addParam('orderElems', $orderElements);
+    $this->View('basket');
 }
 
 public function GetOrderByUser($id)
@@ -38,7 +55,7 @@ public function VerifyStatus()
         return false;
     }
     $userId = $_SESSION["user"]->id;
-    $order = $this->orderManager->GetOrderByStatus($userId, 0);
+    $order = $this->orderManager->GetOrderByStatus($userId, 0)[0];
     if(!$order)
     {
         $this->orderManager->create((object) [
@@ -46,8 +63,13 @@ public function VerifyStatus()
             "user_id"=>$userId,
             "datetime"=>(new DateTime())->format('c')
         ]);
+        $order = $this->orderManager->GetOrderByStatus($userId, 0)[0];
     }
+    var_dump($order);
+    return $order->id;
 }
+
+
 
 /*public function OrderForm()
 {

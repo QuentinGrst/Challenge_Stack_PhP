@@ -14,7 +14,7 @@ class OrderManager extends ModelManager{
         $req->bindParam(":id", $id);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
-        return $req->fetch();
+        return $req->fetchAll();
     }
 
     public function GetOrderByStatus($userId, $status)
@@ -24,7 +24,6 @@ class OrderManager extends ModelManager{
         $req->bindParam(":status", $status);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
-        return $req->fetch();
+        return $req->fetchAll();
     }
-    
 }

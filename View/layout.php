@@ -21,6 +21,7 @@
                     <div><a href="/SignIn">Inscription</a></div>
                     <div><a href="/Login">Connexion</a></div>
                 <?php else :  ?>
+                    <div><a href="/Order">Commandes</a></div>
                     <div><a href="/Logout">Logout</a></div>
                 <?php endif ?>
             </div>
