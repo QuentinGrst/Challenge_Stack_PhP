@@ -13,6 +13,7 @@ class BaseController
     protected $productReviewManager;
     protected $sellerReviewManager;
     protected $sellerManager;
+    protected $orderElementsManager;
 
     public function __construct($route)
     {

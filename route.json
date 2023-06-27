@@ -79,7 +79,7 @@
         "manager": [
             "Order"
         ],
-        "auth": [""]
+        "auth": ["client"]
     },
     {
         "path":"/Order/([0-9]*)",
@@ -99,7 +99,7 @@
         "manager": [
             "Order"
         ],
-        "auth": [""]
+        "auth": ["client"]
     },
     {
         "path": "/Seller",
@@ -134,5 +134,15 @@
         "manager": [
             "ProductReview"
         ]
+    },
+    {
+        "path":"/Product/Basket",
+        "controller":"Order",
+        "action":"AddProductToOrder",
+        "method": "GET",
+        "manager": [
+            "Order" 
+        ]
     }
+
 ]
