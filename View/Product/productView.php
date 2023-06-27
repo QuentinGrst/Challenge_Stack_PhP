@@ -1,5 +1,5 @@
 <?php
-require_once './Model/ProductManager.php';
+require_once '/Model/ProductManager.php';
 
 $productManager = new \Model\ProductManager();
 $products = $productManager->GetAllProducts($productId);

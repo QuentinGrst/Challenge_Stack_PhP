@@ -153,6 +153,16 @@
             "Order"
         ],
         "auth": ["client"]
+    },
+    {
+        "path":"/Search",
+        "controller":"Product",
+        "action":"SearchProducts",
+        "method": "POST",
+        "manager": [
+            "Product"
+        ],
+        "auth": ["client", "seller", "admin"]
     }
 
 ]

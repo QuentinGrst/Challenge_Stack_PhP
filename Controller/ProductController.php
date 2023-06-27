@@ -24,4 +24,15 @@ class ProductController extends BaseController
             "price" => $price
         ]);
     }
+
+    public function SearchProducts($search)
+    {
+        if ($search) {
+            $productList = $this->productManager->SearchProductsWithInput($search);
+        } else {
+            $productList = $this->productManager->getAll();
+        }
+        $this->addParam('products', $productList);
+        $this->View('productList');
+    }
 }
