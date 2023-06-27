@@ -15,7 +15,10 @@
         <p>Description: <?=$elem->description?></p>
         <div>Prix: <?=$elem->price?>€</div>
       </div>
-      <button>Ajouter au panier</button>
+      <form action="">
+        <input type="hidden" name="id" value="<?=$elem->id?>">
+        <input type="submit"> Ajouter au panier</input>
+      </form>
     </div>
   <?php endforeach?>
 </div>
