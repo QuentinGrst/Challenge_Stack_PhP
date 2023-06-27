@@ -20,8 +20,12 @@
                     <div><a href="/SignIn">Inscription</a></div>
                     <div><a href="/Login">Connexion</a></div>
                 <?php else :  ?>
-                    <div><a href="/Order">Commandes</a></div>
-                    <div><a href="/Basket">Panier</a></div>
+                        <?php if ($_SESSION['user']->role == "client") :  ?>
+                            <div><a href="/Order">Commandes</a></div>
+                            <div><a href="/Basket">Panier</a></div>
+                        <?php else : ?>
+                            <div><a href="/Product/New">Ajout Prod.</a></div>
+                        <?php endif ?>
                     <div><a href="/Logout">Logout</a></div>
                 <?php endif ?>
             </div>
