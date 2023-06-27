@@ -11,6 +11,11 @@ class ProductController extends BaseController
         $this->View('productList');
     }
 
+    public function GetProductList()
+    {
+        return $this->productManager->getAll();
+    }
+
     public function ProductForm()
     {
         $this->View("productForm");
