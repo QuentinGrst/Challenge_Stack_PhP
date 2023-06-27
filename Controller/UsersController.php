@@ -32,23 +32,17 @@ class UsersController extends BaseController
     {
         $user = $this->usersManager->getByEmail($mail);
         if ($user) {
-            echo "<script>alert('Un compte existe déjà avec cet e-mail');</script>";
-            echo "<script>setTimeout(function() { window.location.reload(); }, 1000);</script>";
+            return false;
         } else {
             // L'e-mail n'existe pas, l'utilisateur peut procéder à l'inscription
-            $this->SignIn($mail, $password, $role);
+            return true;
         }
     }
 
     function SignInForm()
     {
         if (empty($_SESSION['user'])) {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $mail = $_POST['mail'];
-                $this->CheckEmailExists($mail);
-            } else {
-                $this->View("signin");
-            }
+            $this->View("signin");
         } else {
             header('Location: /');
         }
@@ -60,13 +54,21 @@ class UsersController extends BaseController
             header('Location: /');
             return;
         }
+        if (!$this->CheckEmailExists($mail)) {
+            $this->View("signin", "Un compte avec cet email existe déjà !");
+            return;
+        }
         $user = new \stdClass();
         $user->mail = $mail;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
         $user->pseudo = "test";
         $user->is_seller = ($role == "vendeur") ? 1 : 0;
         $user->is_admin = 0;
-
+        if ($this->usersManager->create($user)) {
+            $this->View("login", "Le compte a été créé ! Veuillez vous connecter");
+        } else {
+            $this->View("signin", "Erreur :(");
+        }   
     }
 
 
@@ -97,8 +99,7 @@ class UsersController extends BaseController
                 $this->View("login");
             }
         } else {
-            echo "Email incorrect";
-            $this->View("login");
+            $this->View("login", "Email incorrect");
         }
     }
 
