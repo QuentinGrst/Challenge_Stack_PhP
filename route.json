@@ -153,6 +153,12 @@
             "Order"
         ],
         "auth": ["client"]
+    },
+    {
+        "path":"/Product/Picture",
+        "controller":"Product",
+        "action":"AddPicture",
+        "method": "POST"
     }
 
 ]

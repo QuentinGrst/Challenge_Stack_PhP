@@ -1,0 +1,8 @@
+{
+    "database": {
+        "database": "sellmeout3",
+        "host": "localhost",
+        "user": "root",
+        "password": ""
+    }
+}
