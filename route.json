@@ -161,8 +161,14 @@
         "method": "POST",
         "manager": [
             "Product"
-        ],
-        "auth": ["client", "seller", "admin"]
+        ]
+    },
+    {
+        "auth": ["client", "seller", "admin"],
+        "path":"/Product/Picture",
+        "controller":"Product",
+        "action":"AddPicture",
+        "method": "POST"
     }
 
 ]

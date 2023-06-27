@@ -43,6 +43,7 @@
         <?php endif ?>
         <?= $content; ?>
     </div>
+    <?= (!empty($headerjs)) ? $headerjs : ""; ?>
 </body>
 
 <script>
