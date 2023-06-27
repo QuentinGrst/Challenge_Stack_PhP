@@ -1,10 +1,9 @@
 <?php
-namespace Controller;
 
+namespace Controller;
 
 class UsersController extends BaseController
 {
-
     function ShowUserList()
     {
         $userList = $this->usersManager->getAll();
@@ -29,10 +28,26 @@ class UsersController extends BaseController
         }
     }
 
+    function CheckEmailExists($mail)
+    {
+        $user = $this->usersManager->getByEmail($mail);
+        if ($user) {
+            echo "<script>alert('Un compte existe déjà avec cette email');</script>";
+        } else {
+            // L'e-mail n'existe pas, l'utilisateur peut procéder à l'inscription
+            $this->SignIn($mail, $password, $role);
+        }
+    }
+
     function SignInForm()
     {
         if (empty($_SESSION['user'])) {
-            $this->View("signin");
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $mail = $_POST['mail'];
+                $this->CheckEmailExists($mail);
+            } else {
+                $this->View("signin");
+            }
         } else {
             header('Location: /');
         }
@@ -50,10 +65,15 @@ class UsersController extends BaseController
         $user->pseudo = "test";
         $user->is_seller = ($role == "vendeur") ? 1 : 0;
         $user->is_admin = 0;
-        if ($this->usersManager->create($user)) {
-            echo "Utilisateur créé !";
-        }
 
+        $existingUser = $this->usersManager->getByEmail($mail);
+        if ($existingUser) {
+            echo "<script>alert('Un compte existe déjà avec cette email');</script>";
+        } else {
+            if ($this->usersManager->create($user)) {
+                echo "Utilisateur créé !";
+            }
+        }
     }
 
     function LoginForm()
@@ -86,10 +106,10 @@ class UsersController extends BaseController
             echo "Email incorrect";
             $this->View("login");
         }
-
     }
 
-    function Logout() {
+    function Logout()
+    {
         unset($_SESSION['user']);
         header('Location: /');
     }
