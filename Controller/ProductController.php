@@ -9,14 +9,14 @@ class ProductController extends BaseController
 
     public function ShowProductList()
     {
-        $productList = $this->productManager->getAll();
+        $productList = $this->productManager->GetAllProducts();
         $this->addParam('products', $productList);
         $this->View('productList');
     }
 
     public function GetProductList()
     {
-        return $this->productManager->getAll();
+        return $this->productManager->GetAllProducts();
     }
 
     public function ProductForm()
@@ -38,7 +38,7 @@ class ProductController extends BaseController
         if ($search) {
             $productList = $this->productManager->SearchProductsWithInput($search);
         } else {
-            $productList = $this->productManager->getAll();
+            $productList = $this->productManager->GetAllProducts();
         }
         $this->addParam('products', $productList);
         $this->View('productList');
