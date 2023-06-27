@@ -59,3 +59,7 @@ a {
   text-decoration: none;
   margin-left: 5px;
 }
+
+body {
+  font: 87.5%/1.5em "Open Sans", sans-serif;
+}
