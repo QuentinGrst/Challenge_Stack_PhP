@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="signin">
-<form method="POST" name="form-signin">
+<form method="POST" action="/SignIn" name="form-signin">
     <input type="email" class="input" id="user" name="mail" placeholder="Username"/>
     <input type="password" class="input" id="pass" name ="password" placeholder="Password" />
     <select name="role" class="selecteur">

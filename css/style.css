@@ -7,6 +7,8 @@
 
 .message {
   color: white;
+  padding: 1rem;
+  border: orange solid 6px;
 }
 
 body {
@@ -30,16 +32,16 @@ nav.role_client {
 }
 
 nav.role_seller {
-  background-color: #830000;  
+  background-color: #cd3737;  
 }
 
 nav.role_admin {
-  background-color: #32006b;
+  background-color: #734d9f;
 }
 
 .menu {
   display: flex;
-  align-items: center;
+  align-items: center;  
   justify-content: flex-end;
   height: 100%;
   gap: 25px;
