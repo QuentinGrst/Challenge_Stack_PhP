@@ -9,18 +9,18 @@ class ProductManager extends ModelManager
         parent::__construct("products");
     }
 
-    public function GetAllProducts($productId)
+    public function GetAllProducts()
     {
-        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE product_id = :productId");
-        $req->bindParam(":productId", $productId);
+        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE state = 1");
+        
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
-        return $req->fetch();
+        return $req->fetchAll();
     }
 
     public function SearchProductsWithInput($search)
     {
-        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE name LIKE :search OR description LIKE :search");
+        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE (name LIKE :search OR description LIKE :search) AND state = 1");
         $searchTerm = "%" . $search . "%";
         $req->bindParam(":search", $searchTerm);
         $req->execute();
