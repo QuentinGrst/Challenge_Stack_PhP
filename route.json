@@ -59,7 +59,7 @@
         "manager": [
             "Product"
         ],
-        "auth": ["seller, admin"]
+        "auth": ["seller", "admin"]
     },
     {
         "path":"/Order/all",
@@ -79,7 +79,7 @@
         "manager": [
             "Order"
         ],
-        "auth": [""]
+        "auth": ["client"]
     },
     {
         "path":"/Order/([0-9]*)",
@@ -99,7 +99,7 @@
         "manager": [
             "Order"
         ],
-        "auth": [""]
+        "auth": ["client", "seller", "admin"]
     },
     {
     "path": "/Seller",
