@@ -136,12 +136,12 @@
         ]
     },
     {
-        "path":"/Product/Basket",
-        "controller":"Order",
+        "path":"/Product/([0-9]*)/Basket",
+        "controller":"OrderElements",
         "action":"AddProductToOrder",
         "method": "GET",
         "manager": [
-            "Order" 
+            "OrderElements" 
         ]
     }
 
