@@ -28,6 +28,20 @@ public function ShowUserOrders()
     $this->View('orderList');
 }
 
+public function ShowBasket()
+{
+    if (empty($_SESSION["user"]->id)) {
+        echo "no user id";
+        return false;
+    }
+    $userId = $_SESSION["user"]->id;
+    $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
+    $orderElements = $orderElementsController->GetElementsByOrder($userId);
+    var_dump($orderElements);
+    $this->addParam('orderElems', $orderElements);
+    $this->View('basket');
+}
+
 public function GetOrderByUser($id)
 {
     return $this->orderManager->getByUserId($id);

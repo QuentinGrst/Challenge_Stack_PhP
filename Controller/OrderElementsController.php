@@ -9,6 +9,11 @@ class OrderElementsController extends BaseController{
         return $this->orderElementsManager->getByUserId($id);
     }
 
+    public function GetElementsByOrder($id)
+    {
+        return $this->orderElementsManager->getByOrderId($id);
+    }
+
     public function AddProductToOrder($productId)
     {
         $orderController = new orderController((object) ["manager" => ['Order']]);

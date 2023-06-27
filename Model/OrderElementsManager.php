@@ -26,8 +26,9 @@ class OrderElementsManager extends ModelManager{
     }
 
     public function getByOrderId($orderId) {
-        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . "
-                               WHERE order_id = :orderId");
+        $req = $this->bdd->prepare("SELECT oe.*, p.name as product_name, p.price as product_price FROM " . $this->table . " oe
+                                JOIN products p ON oe.product_id = p.id
+                               WHERE oe.order_id = :orderId");
         $req->bindParam(":orderId", $orderId);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
@@ -35,7 +36,6 @@ class OrderElementsManager extends ModelManager{
         $order_elems = [];
         foreach ($req->fetchAll() as $order_elem) {
             $order_elems[$order_elem->order_id] = $order_elem;
-            $order_elems[$order_elem->order_id]->product = (new ProductManager())->getById($order_elem->product_id);
         }
         
         return $order_elems;

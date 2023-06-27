@@ -143,6 +143,16 @@
         "manager": [
             "OrderElements" 
         ]
+    },
+    {
+        "path":"/Order/Elements",
+        "controller":"Order",
+        "action":"ShowBasket",
+        "method": "GET",
+        "manager": [
+            "Order"
+        ],
+        "auth": ["client"]
     }
 
 ]
