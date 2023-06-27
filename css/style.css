@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+nav {
+  background-color: var(--couleur-principale);
+  height: 50px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 25px;
+  margin-right: 25px;
+}
+
+.fa-home {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
