@@ -38,7 +38,6 @@ public function ShowBasket()
     $userId = $_SESSION["user"]->id;
     $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
     $orderElements = $orderElementsController->GetElementsByOrder($userId);
-    var_dump($orderElements);
     $this->addParam('orderElems', $orderElements);
     $this->View('basket');
 }

@@ -66,6 +66,7 @@ class UsersController extends BaseController
         $user->pseudo = "test";
         $user->is_seller = ($role == "vendeur") ? 1 : 0;
         $user->is_admin = 0;
+
     }
 
 

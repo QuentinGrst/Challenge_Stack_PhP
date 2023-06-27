@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav class="role_<?= $_SESSION['user']->role ?? 'none' ?>">
             <div class="menu">
                 <div class="home"><a href="/"><i class="fas fa-home"></i></a></div>
                 <?php if (empty($_SESSION['user'])) :  ?>
@@ -21,12 +21,16 @@
                     <div><a href="/Login">Connexion</a></div>
                 <?php else :  ?>
                     <div><a href="/Order">Commandes</a></div>
+                    <div><a href="/Basket">Panier</a></div>
                     <div><a href="/Logout">Logout</a></div>
                 <?php endif ?>
             </div>
         </nav>
     </header>
     <div class="content">
+        <?php if (isset($message) && $message) : ?>
+            <div class="message"><?= $message ?></div>
+        <?php endif ?>
         <?= $content; ?>
     </div>
 </body>

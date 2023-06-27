@@ -145,7 +145,7 @@
         ]
     },
     {
-        "path":"/Order/Elements",
+        "path":"/Basket",
         "controller":"Order",
         "action":"ShowBasket",
         "method": "GET",

@@ -7,10 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div class="home_page">
         <h2>HOME</h2>
-        <h3><?= $_SESSION['user']->role ?? 'not connected' ?></h3>
-
+        <h3></h3>    
         <div class="product-card">
             <img src="product1.jpg" alt="Product 1">
             <h4>Product 1</h4>
@@ -26,6 +25,7 @@
             <p>Prix: $24.99</p>
             <button>Ajouter au panier</button>
         </div>
-    </div>
+</div>
+
 </body>
 </html>

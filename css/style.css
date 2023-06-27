@@ -5,9 +5,36 @@
   font-family: "Open Sans", Arial, sans-serif;
 }
 
+.message {
+  color: white;
+}
+
+body {
+  background: #2c3338;
+  color: #ffffff;
+  font: 87.5%/1.5em "Open Sans", sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+
 nav {
-  background-color: #3b4148;
   height: 50px;
+}
+
+nav.role_none {
+  background-color: #474c53;
+}
+
+nav.role_client {
+  background-color: #474c53;
+}
+
+nav.role_seller {
+  background-color: #830000;  
+}
+
+nav.role_admin {
+  background-color: #32006b;
 }
 
 .menu {
