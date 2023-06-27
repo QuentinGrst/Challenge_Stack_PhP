@@ -32,7 +32,8 @@ class UsersController extends BaseController
     {
         $user = $this->usersManager->getByEmail($mail);
         if ($user) {
-            echo "<script>alert('Un compte existe déjà avec cette email');</script>";
+            echo "<script>alert('Un compte existe déjà avec cet e-mail');</script>";
+            echo "<script>setTimeout(function() { window.location.reload(); }, 1000);</script>";
         } else {
             // L'e-mail n'existe pas, l'utilisateur peut procéder à l'inscription
             $this->SignIn($mail, $password, $role);
@@ -65,18 +66,10 @@ class UsersController extends BaseController
         $user->pseudo = "test";
         $user->is_seller = ($role == "vendeur") ? 1 : 0;
         $user->is_admin = 0;
-
-        $existingUser = $this->usersManager->getByEmail($mail);
-        if ($existingUser) {
-            echo "<script>alert('Un compte existe déjà avec cette email');</script>";
-        } else {
-            if ($this->usersManager->create($user)) {
-                echo "Utilisateur créé !";
-            }
-        }
     }
 
-    function LoginForm()
+
+    function LoginForm()    
     {
         if (empty($_SESSION['user'])) {
             $this->View("login");
