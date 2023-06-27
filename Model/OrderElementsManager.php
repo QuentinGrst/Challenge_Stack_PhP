@@ -25,4 +25,30 @@ class OrderElementsManager extends ModelManager{
         
         return $order_elems;
     }
+
+    public function getByOrderId($orderId) {
+        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . "
+                               WHERE order_id = :orderId");
+        $req->bindParam(":orderId", $orderId);
+        $req->execute();
+        $req->setFetchMode(\PDO::FETCH_OBJ);
+    
+        $order_elems = [];
+        foreach ($req->fetchAll() as $order_elem) {
+            $order_elems[$order_elem->order_id] = $order_elem;
+            $order_elems[$order_elem->order_id]->product = (new ProductManager())->getById($order_elem->product_id);
+        }
+        
+        return $order_elems;
+    }
+
+    public function VerifyIfExist($productId,$orderId)
+    {
+        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE product_id = :productId AND order_id = :orderId ");
+        $req->bindParam(":productId", $productId);
+        $req->bindParam(":orderId", $orderId);
+        $req->execute();
+        $req->setFetchMode(\PDO::FETCH_OBJ);
+        return $req->fetch();
+    }
 }
