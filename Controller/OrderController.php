@@ -15,14 +15,16 @@ public function ShowOrderList()
 
 public function ShowUserOrders()
 {
-    // if (empty($_SESSION["user"]->id)) {
-    //     echo "no user id";
-    //     return false;
-    // }
-    // $userId = $_SESSION["user"]->id;
-    $userId = 1;
+    if (empty($_SESSION["user"]->id)) {
+        echo "no user id";
+        return false;
+    }
+    $userId = $_SESSION["user"]->id;
     $orderList = $this->GetOrderByUser($userId);
+    $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
+    $orderElements = $orderElementsController->GetOrderElementsByUser($userId);
     $this->addParam('orders', $orderList);
+    $this->addParam('orderElems', $orderElements);
     $this->View('orderList');
 }
 
