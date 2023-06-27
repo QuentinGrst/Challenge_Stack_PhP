@@ -11,6 +11,7 @@ class BaseController
     protected $productManager;
     protected $orderManager;
     protected $sellerManager;
+    protected $orderElementsManager;
 
     public function __construct($route)
     {
