@@ -23,6 +23,7 @@ public function ShowUserOrders()
     $orderList = $this->GetOrderByUser($userId);
     $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
     $orderElements = $orderElementsController->GetOrderElementsByUser($userId);
+
     $this->addParam('orders', $orderList);
     $this->addParam('orderElems', $orderElements);
     $this->View('orderList');
