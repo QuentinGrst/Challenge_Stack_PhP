@@ -16,7 +16,7 @@ class ProductController extends BaseController
         $this->View("productForm");
     }
 
-    public function CreateProduct($name, $description, $price)
+    public function CreateProduct($name, $description, $price, $id)
     {
         $this->productManager->create((object)[ 
             "name" => $name, 
