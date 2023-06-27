@@ -11,7 +11,7 @@
                     <div class="elem">
                         <h4><?= $orderElem->product_name ?></h4>
                         <h5>x<?= $orderElem->quantity ?></h5>
-                        <p><?= $orderElem->product_price ?>€</p>
+                        <p><?= $orderElem->quantity * $orderElem->product_price ?>€</p>
                     </div>
                 <?php endforeach ?>
                 <?php endif ?>
