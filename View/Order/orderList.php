@@ -1,9 +1,9 @@
 <div class="order_history">
     <?php foreach ($orders as $order) : ?>
         <?php if (!empty($order)) : ?>
-        <div class="order">
+        <div class="order status_<?= $order->status ?>">
             <h3>
-                Commande du <?= (new DateTime($order->datetime))->format('d-m-Y') ?> à <?= (new DateTime($order->datetime))->format('H:m:s') ?>
+            <?php if ($order->status == 0) { echo "[en cours] "; } ?>Commande du <?= (new DateTime($order->datetime))->format('d-m-Y') ?> à <?= (new DateTime($order->datetime))->format('H:m:s') ?>
             </h3>
             <div class="elems">
                 <?php if (!empty($orderElems[$order->id])) : ?>
