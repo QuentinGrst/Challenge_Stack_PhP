@@ -11,6 +11,10 @@
   border: orange solid 6px;
 }
 
+.message.success_1 {
+  border-color: greenyellow;
+}
+
 body {
   background: #2c3338;
   color: #ffffff;

@@ -39,7 +39,7 @@
     </header>
     <div class="content">
         <?php if (isset($message) && $message) : ?>
-            <div class="message"><?= $message ?></div>
+            <div class="message success_<?=$success ?>"><?= $message ?></div>
         <?php endif ?>
         <?= $content; ?>
     </div>

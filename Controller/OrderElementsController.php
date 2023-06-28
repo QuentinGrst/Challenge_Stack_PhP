@@ -21,21 +21,24 @@ class OrderElementsController extends BaseController{
         $res = $this->orderElementsManager->VerifyIfExist($productId,$orderId);
         if($res && $res->num_rows=1)
         {
-            $this->orderElementsManager->update((object)[
+            $result = $this->orderElementsManager->update((object)[
                 "id"=>$res->id,
                 "quantity"=>$res->quantity+1
             ]);
         }
         else
         {
-            $this->orderElementsManager->create((object)[
+            $result = $this->orderElementsManager->create((object)[
                 "order_id"=>$orderId,
                 "product_id"=>$productId,
-                "date"=>(new DateTime())->format('c'),
                 "quantity"=>1
             ]);
         }
-        
-        
+        $homeController = new homeController((object) ["controller" => 'home']);
+        if ($result) {
+            $homeController->Home(1);
+        } else {
+            $homeController->Home(2);
+        }
     }
 }

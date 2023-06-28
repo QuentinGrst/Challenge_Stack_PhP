@@ -139,7 +139,7 @@
         "path":"/Product/([0-9]*)/Basket",
         "controller":"OrderElements",
         "action":"AddProductToOrder",
-        "method": "GET",
+        "method": "POST",
         "manager": [
             "OrderElements" 
         ]

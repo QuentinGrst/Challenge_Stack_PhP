@@ -24,13 +24,20 @@ class ProductController extends BaseController
         $this->View("productForm");
     }
 
-    public function CreateProduct($name, $description, $price, $id)
+    public function CreateProduct($name, $description, $price, $picture)
     {
-        $this->productManager->create((object)[
+        $add = $this->productManager->create((object)[
             "name" => $name,
             "description" => $description,
-            "price" => $price
+            "price" => $price,
+            "picture" => $picture
         ]);
+
+        if ($add) {
+            $this->View("productForm", "Ajout effectué avec succès", 1);
+        } else {
+            $this->View("productForm", "Erreur lors de l'ajout");
+        }
     }
 
     public function SearchProducts($search)

@@ -33,7 +33,7 @@ class BaseController
         }
     }
 
-    public function View($template, $message = '')
+    public function View($template, $message = '', $success = 0)
     {
         if (file_exists("View/" . $this->route->controller . "/css/$template.css")) {
             $header = '<link rel="stylesheet" href="/View/' . $this->route->controller . '/css/' . $template . '.css">';
@@ -44,6 +44,7 @@ class BaseController
         if ($message) {
             $this->addParam('message', $message);
         }
+        $this->addParam('success', $success);
         ob_start();
         extract($this->params);
         include "View/" . $this->route->controller . "/$template.php";

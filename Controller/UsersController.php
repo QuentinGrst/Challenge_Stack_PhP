@@ -95,8 +95,7 @@ class UsersController extends BaseController
                 $_SESSION['user']->role = ($user->is_admin == 1) ? "admin" : (($user->is_seller == 1) ? "seller" : "client");
                 header('Location: /');
             } else {
-                echo "Mot de passe érroné";
-                $this->View("login");
+                $this->View("login", "Mot de passe erroné");
             }
         } else {
             $this->View("login", "Email incorrect");

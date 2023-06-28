@@ -64,7 +64,6 @@ public function VerifyStatus()
         ]);
         $order = $this->orderManager->GetOrderByStatus($userId, 0)[0];
     }
-    var_dump($order);
     return $order->id;
 }
 
