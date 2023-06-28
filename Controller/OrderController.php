@@ -35,10 +35,12 @@ public function ShowBasket()
         echo "no user id";
         return false;
     }
-    $userId = $_SESSION["user"]->id;
     $orderElementsController = new OrderElementsController((object) ["manager" => ['OrderElements']]);
-    $orderElements = $orderElementsController->GetElementsByOrder($userId);
-    $this->addParam('orderElems', $orderElements);
+    $orderId = $this->VerifyStatus();
+    if ($orderId) {
+        $orderElements = $orderElementsController->GetElementsByOrder($orderId);
+        $this->addParam('orderElems', $orderElements);
+    }
     $this->View('basket');
 }
 

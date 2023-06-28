@@ -33,13 +33,8 @@ class OrderElementsManager extends ModelManager{
         $req->bindParam(":orderId", $orderId);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
-    
-        $order_elems = [];
-        foreach ($req->fetchAll() as $order_elem) {
-            $order_elems[$order_elem->order_id] = $order_elem;
-        }
         
-        return $order_elems;
+        return $req->fetchAll();
     }
 
     public function VerifyIfExist($productId,$orderId)
