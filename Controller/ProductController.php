@@ -26,7 +26,7 @@ class ProductController extends BaseController
 
     public function CreateProduct($name, $description, $price, $picture)
     {
-        $add = $this->productManager->create((object)[
+        $add = $this->productManager->create((object) [
             "name" => $name,
             "description" => $description,
             "price" => $price,
@@ -50,7 +50,7 @@ class ProductController extends BaseController
         $this->addParam('products', $productList);
         $this->View('productList');
     }
-    
+
     public function AddPicture()
     {
         $target_dir = "image/product/";
@@ -67,5 +67,12 @@ class ProductController extends BaseController
             $response->url = "/" . $target_file;
             echo json_encode($response);
         }
+    }
+
+    public function ProductInventory()
+    {
+        $productList = $this->productManager->GetAllProducts();
+        $this->addParam('products', $productList);
+        $this->View('productInventory');
     }
 }

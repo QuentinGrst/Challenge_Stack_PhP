@@ -1,174 +1,161 @@
 [
-    {
-        "path": "/",
-        "controller": "Home",
-        "action": "Home",
-        "method": "GET"
-    },
-    {
-        "path": "/Logout",
-        "controller": "Users",
-        "action": "Logout",
-        "method": "GET"
-        },
-    {
-        "path": "/SignIn",
-        "controller": "Users",
-        "action": "SignInForm",
-        "method": "GET" 
-    },
-    {
-        "path": "/SignIn",
-        "controller": "Users",
-        "action": "SignIn",
-        "method": "POST",
-        "manager": ["Users"]
-    },
-    {
-        "path": "/Login",
-        "controller": "Users",
-        "action": "LoginForm",
-        "method": "GET"
-    },
-    {
-        "path": "/Login",
-        "controller": "Users",
-        "action": "Login",
-        "method": "POST",
-        "manager": ["Users"]
-    },
-    {
-        "path": "/Product",
-        "controller": "Product",
-        "action": "ShowProductList",
-        "method": "GET",
-        "manager": ["Product"]
-    },
-    {
-        "path":"/Product/New",
-        "controller":"Product",
-        "action":"ProductForm",
-        "method": "GET",
-        "auth": ["seller", "admin"]
-    },
-    {
-        "path":"/Product/New",
-        "controller":"Product",
-        "action":"CreateProduct",
-        "method": "POST",
-        "manager": [
-            "Product"
-        ],
-        "auth": ["seller", "admin"]
-    },
-    {
-        "path":"/Order/all",
-        "controller":"Order",
-        "action":"ShowOrderList",
-        "method": "GET",
-        "manager": [
-            "Order"
-        ],
-        "auth": ["admin"]
-    },
-    {
-        "path":"/Order",
-        "controller":"Order",
-        "action":"ShowUserOrders",
-        "method": "GET",
-        "manager": [
-            "Order"
-        ],
-        "auth": ["client"]
-    },
-    {
-        "path":"/Order/([0-9]*)",
-        "controller":"Order",
-        "action":"GetOrderByUser",
-        "method": "GET",
-        "manager": [
-            "Order"
-        ],
-        "auth": ["admin"]
-    },
-    {
-        "path":"/Order/Waiting",
-        "controller":"Order",
-        "action":"VerifyStatus",
-        "method": "GET",
-        "manager": [
-            "Order"
-        ],
-        "auth": ["client", "seller", "admin"]
-    },
-    {
-        "path": "/Seller",
-        "controller": "Seller",
-        "action": "ShowSellerList",
-        "method": "GET",
-        "manager": ["Seller"],
-        "auth": ["seller"]
-    },
-    {
-        "path": "/Seller/([0-9]*)",
-        "controller": "Seller",
-        "action": "ShowSellerByUser",
-        "method": "GET",
-        "manager": ["Seller"],
-        "auth": ["seller"]
-    },
-    {
-        "path":"/Product/([0-9]*)/Review",
-        "controller":"ProductReview",
-        "action":"AddReview",
-        "method": "POST",
-        "manager": [
-            "ProductReview"
-        ]
-    },
-    {
-        "path":"/TestReview",
-        "controller":"ProductReview",
-        "action":"ShowForm",
-        "method": "GET",
-        "manager": [
-            "ProductReview"
-        ]
-    },
-    {
-        "path":"/Product/([0-9]*)/Basket",
-        "controller":"OrderElements",
-        "action":"AddProductToOrder",
-        "method": "POST",
-        "manager": [
-            "OrderElements" 
-        ]
-    },
-    {
-        "path":"/Basket",
-        "controller":"Order",
-        "action":"ShowBasket",
-        "method": "GET",
-        "manager": [
-            "Order"
-        ],
-        "auth": ["client"]
-    },
-    {
-        "path":"/Search",
-        "controller":"Product",
-        "action":"SearchProducts",
-        "method": "POST",
-        "manager": [
-            "Product"
-        ]
-    },
-    {
-        "auth": ["client", "seller", "admin"],
-        "path":"/Product/Picture",
-        "controller":"Product",
-        "action":"AddPicture",
-        "method": "POST"
-    }
-
+  {
+    "path": "/",
+    "controller": "Home",
+    "action": "Home",
+    "method": "GET"
+  },
+  {
+    "path": "/Logout",
+    "controller": "Users",
+    "action": "Logout",
+    "method": "GET"
+  },
+  {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignInForm",
+    "method": "GET"
+  },
+  {
+    "path": "/SignIn",
+    "controller": "Users",
+    "action": "SignIn",
+    "method": "POST",
+    "manager": ["Users"]
+  },
+  {
+    "path": "/Login",
+    "controller": "Users",
+    "action": "LoginForm",
+    "method": "GET"
+  },
+  {
+    "path": "/Login",
+    "controller": "Users",
+    "action": "Login",
+    "method": "POST",
+    "manager": ["Users"]
+  },
+  {
+    "path": "/Product",
+    "controller": "Product",
+    "action": "ShowProductList",
+    "method": "GET",
+    "manager": ["Product"]
+  },
+  {
+    "path": "/Product/New",
+    "controller": "Product",
+    "action": "ProductForm",
+    "method": "GET",
+    "auth": ["seller", "admin"]
+  },
+  {
+    "path": "/Product/New",
+    "controller": "Product",
+    "action": "CreateProduct",
+    "method": "POST",
+    "manager": ["Product"],
+    "auth": ["seller", "admin"]
+  },
+  {
+    "path": "/Order/all",
+    "controller": "Order",
+    "action": "ShowOrderList",
+    "method": "GET",
+    "manager": ["Order"],
+    "auth": ["admin"]
+  },
+  {
+    "path": "/Order",
+    "controller": "Order",
+    "action": "ShowUserOrders",
+    "method": "GET",
+    "manager": ["Order"],
+    "auth": ["client"]
+  },
+  {
+    "path": "/Order/([0-9]*)",
+    "controller": "Order",
+    "action": "GetOrderByUser",
+    "method": "GET",
+    "manager": ["Order"],
+    "auth": ["admin"]
+  },
+  {
+    "path": "/Order/Waiting",
+    "controller": "Order",
+    "action": "VerifyStatus",
+    "method": "GET",
+    "manager": ["Order"],
+    "auth": ["client", "seller", "admin"]
+  },
+  {
+    "path": "/Seller",
+    "controller": "Seller",
+    "action": "ShowSellerList",
+    "method": "GET",
+    "manager": ["Seller"],
+    "auth": ["seller"]
+  },
+  {
+    "path": "/Seller/([0-9]*)",
+    "controller": "Seller",
+    "action": "ShowSellerByUser",
+    "method": "GET",
+    "manager": ["Seller"],
+    "auth": ["seller"]
+  },
+  {
+    "path": "/Product/([0-9]*)/Review",
+    "controller": "ProductReview",
+    "action": "AddReview",
+    "method": "POST",
+    "manager": ["ProductReview"]
+  },
+  {
+    "path": "/TestReview",
+    "controller": "ProductReview",
+    "action": "ShowForm",
+    "method": "GET",
+    "manager": ["ProductReview"]
+  },
+  {
+    "path": "/Product/([0-9]*)/Basket",
+    "controller": "OrderElements",
+    "action": "AddProductToOrder",
+    "method": "POST",
+    "manager": ["OrderElements"]
+  },
+  {
+    "path": "/Basket",
+    "controller": "Order",
+    "action": "ShowBasket",
+    "method": "GET",
+    "manager": ["Order"],
+    "auth": ["client"]
+  },
+  {
+    "path": "/Search",
+    "controller": "Product",
+    "action": "SearchProducts",
+    "method": "POST",
+    "manager": ["Product"]
+  },
+  {
+    "auth": ["client", "seller", "admin"],
+    "path": "/Product/Picture",
+    "controller": "Product",
+    "action": "AddPicture",
+    "method": "POST"
+  },
+  {
+    "auth": ["seller", "admin"],
+    "path": "/Product/Inventaire",
+    "controller": "Product",
+    "action": "ProductInventory",
+    "method": "GET",
+    "manager": ["Product"]
+  }
 ]

@@ -40,16 +40,55 @@ nav.role_client {
 }
 
 nav.role_seller {
-  background-color: #cd3737;  
+  background-color: #cd3737;
 }
 
 nav.role_admin {
   background-color: #734d9f;
 }
 
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 5px 10px;
+  color: white;
+  font-size: 16px;
+  width: 200px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+#search-icon {
+  position: absolute;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#search-icon:hover {
+  color: #4caf50;
+}
+
 .menu {
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: flex-end;
   height: 100%;
   gap: 25px;
