@@ -30,6 +30,7 @@ form.add_form {
   padding: 8px;
   cursor: pointer;
   justify-content: center;
+  max-height: 200px;
 }
 
 .product-file input {
@@ -42,4 +43,8 @@ form.add_form {
 
 .product-file .picture.show {
   display: block;
+}
+
+.picture {
+    max-height: 200px;
 }
