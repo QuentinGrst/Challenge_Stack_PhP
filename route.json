@@ -157,5 +157,12 @@
     "action": "ProductInventory",
     "method": "GET",
     "manager": ["Product"]
+  },
+  {
+    "path": "/Basket/Delete",
+    "controller": "OrderElements",
+    "action": "DeleteProductToOrder",
+    "method": "POST",
+    "manager": ["OrderElements"]
   }
 ]
