@@ -1,5 +1,5 @@
 <div class="search-page">
-    <h2>HOME</h2>
+    <h2>Sell me Out</h2>
 </div>
 
 <div class="product-cards-container">

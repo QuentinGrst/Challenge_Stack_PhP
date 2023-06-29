@@ -26,12 +26,6 @@
   margin-top: 25px;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
 input[type="submit"] {
   background-color: #53aa56;
   color: #ffffff;

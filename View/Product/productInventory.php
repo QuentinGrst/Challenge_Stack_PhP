@@ -14,9 +14,6 @@
             <div class="price">
                 <?= $product->price; ?>
             </div>
-            <p>
-                <?= $product->seller_id ?>
-            </p>
             <div class="actions">
                 <form action="/Product/Archive" method="POST">
                     <input type="hidden" name="id" value="<?= $product->id ?>">

@@ -1,5 +1,5 @@
 <div class="home_page">
-  <h2>HOME</h2>
+  <h2>Sell Me Out</h2>
 </div>
 
 <div class="product-cards-container">
