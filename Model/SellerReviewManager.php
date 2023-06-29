@@ -24,7 +24,7 @@ class SellerReviewManager extends ModelManager{
         $req->bindParam(":sellerId", $sellerId);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);
-        return $req->fetch();
+        return $req->fetchAll();
     }
     
 }

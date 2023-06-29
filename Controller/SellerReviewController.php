@@ -39,7 +39,6 @@ class SellerReviewController extends BaseController
     public function GetAverageReview($sellerId)
     {
         $reviews = $this->sellerReviewManager->GetAllReviews($sellerId);
-
         if ($reviews)
         {
             $somme_review = 0;
@@ -47,11 +46,11 @@ class SellerReviewController extends BaseController
             foreach($reviews as $review)
             {
                 $i++;
-                $somme_review+=$review;
+                $somme_review+=$review->stars;
             }
             if ($i > 0)
             {
-                $moyenne =  $somme_review / $i;
+                $moyenne = $somme_review / $i;
                 return $moyenne;
             }
         }
