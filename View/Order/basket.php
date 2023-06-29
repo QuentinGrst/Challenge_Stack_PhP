@@ -21,9 +21,13 @@
         <?php endforeach ?>
     </div>
 
+    <?php if (count($orderElems)) : ?>
     <div class="basket-footer">
         <form method="POST" action="/Basket/Validate">
             <input type="submit" value="Valider la commande" class="validate-btn">
         </form>
     </div>
+    <?php else : ?>
+        <div>Votre panier est vide</div>
+    <?php endif ?>
 </div>

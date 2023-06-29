@@ -72,8 +72,32 @@ class ProductController extends BaseController
 
     public function ProductInventory()
     {
-        $productList = $this->productManager->GetAllProducts();
+        if ($_SESSION['user']->role == 'admin')
+        {
+            $productList = $this->productManager->GetAllProducts();
+            $archived = $this->productManager->GetAllArchived();
+        } else {
+            $productList = $this->productManager->GetAllProductsInventory();
+            $archived = $this->productManager->GetAllArchivedInventory();
+        }
+        
         $this->addParam('products', $productList);
+        $this->addParam('archived', $archived);
         $this->View('productInventory');
+    }
+
+    public function ArchiveProduct($id)
+    {
+        $product = $this->productManager->getById($id);
+        $role = $_SESSION['user']->role;
+        if (($role == "admin") || ($role == "seller" && $product->seller_id == $_SESSION['user']->id))
+        {
+            if ($product->state) {
+                $this->productManager->archiveProduct($id);
+            } else {
+                $this->productManager->unArchiveProduct($id);
+            }
+        }
+        header("Location: /Product/Inventaire");
     }
 }
