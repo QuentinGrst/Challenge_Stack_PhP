@@ -21,6 +21,7 @@ class SellerController extends BaseController
         }
         $average = $SellerReviewController->GetAverageReview($id);
         $rating = $SellerReviewController->generateStarRating($average);
+        var_dump($average);
         $this->addParam('seller', $seller);
         $this->addParam('review', $review);
         $this->addParam('rating', $rating);

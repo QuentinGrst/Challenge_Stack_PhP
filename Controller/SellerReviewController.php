@@ -8,7 +8,7 @@ class SellerReviewController extends BaseController
     {
         $this->View("ProductReviewForm");
     }
-    public function AddReview($sellerId,$stars)
+    public function AddReview($id,$rating)
     {
         if (empty($_SESSION["user"]->id)) {
             echo "no user id";
@@ -16,41 +16,46 @@ class SellerReviewController extends BaseController
         }
         $userId = $_SESSION["user"]->id;
 
-        $review = $this->sellerReviewManager->VerifyReview($sellerId,$userId);
+        $review = $this->sellerReviewManager->VerifyReview($id,$userId);
         if($review)
         {
             $test = $this->sellerReviewManager->update((object) [
                 "id"=> intval($review->id),
-                "product_id"=>$sellerId,
+                "seller_id"=>$id,
                 "user_id"=>$userId,
-                "stars"=>$stars
+                "stars"=>$rating
             ]);
         }else
         {
             $this->sellerReviewManager->create((object) [
-                "product_id"=>$sellerId,
+                "seller_id"=>$id,
                 "user_id"=>$userId,
-                "stars"=>$stars
+                "stars"=>$rating
             ]);
         }
+        header("Location: /Seller/$id");
     }
 
     public function GetAverageReview($sellerId)
     {
         $reviews = $this->sellerReviewManager->GetAllReviews($sellerId);
-        $somme_review = 0;
-        $i = 0;
-        if($i>0)
+
+        if ($reviews)
         {
+            $somme_review = 0;
+            $i = 0;
             foreach($reviews as $review)
             {
                 $i++;
-                $somme_review+=$review->stars;
+                $somme_review+=$review;
             }
-            $moyenne =  $somme_review / $i;
-            return $moyenne;
+            if ($i > 0)
+            {
+                $moyenne =  $somme_review / $i;
+                return $moyenne;
+            }
         }
-        return;
+            return;
     }
 
     public function getReviewByUser($sellerId, $userId)
