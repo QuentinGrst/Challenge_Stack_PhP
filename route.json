@@ -105,7 +105,7 @@
     "action": "ShowSellerByUser",
     "method": "GET",
     "manager": ["Seller"],
-    "auth": ["seller", "client", "admin"]
+    "auth": ["","client","seller", "admin"]
   },
   {
     "path": "/Product/([0-9]*)/Review",

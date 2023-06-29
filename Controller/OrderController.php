@@ -74,7 +74,8 @@ public function ValidateBasket()
     $orderId = $this->VerifyStatus();
     $result = $this->orderManager->update((object)[
         "id"=>$orderId,
-        "status"=> 1
+        "datetime"=>(new DateTime())->format('c'),
+        "status"=> 1,
     ]);
     $homeController = new homeController((object) ["controller" => 'home']);
         if ($result) {

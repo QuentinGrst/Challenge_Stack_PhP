@@ -54,7 +54,7 @@ nav.role_admin {
   margin-right: 25px;
 }
 
-input[type="text"] {
+#search {
   background-color: transparent;
   border: none;
   border-bottom: 2px solid white;
