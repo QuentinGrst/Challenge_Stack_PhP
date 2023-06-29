@@ -13,9 +13,7 @@
           <h3>
             <?= $elem->name ?>
           </h3>
-          <h4><a href="/Seller/<?= $elem->seller_id ?>">
-              <?= $elem->seller_name ?></a>
-          </h4>
+          <h4><a href="/Seller/<?= $elem->seller_id ?>"><?= $elem->seller_name ?></a></h4>
           <p>Description:
             <?= $elem->description ?>
           </p>
@@ -25,11 +23,10 @@
         </div>
         <form action="/Product/<?= $elem->id ?>/Basket" method="POST">
           <?php if (!empty($_SESSION['user']->role) && $_SESSION['user']->role == "client"): ?>
-            <input type="submit" value="Ajouter au panier"></input>
+            <button type="submit">Ajouter au panier</button>
           <?php elseif (!isset($_SESSION['user'])): ?>
             <a href="/Login">Connexion requise pour ajouter au panier</a>
           <?php endif ?>
-
         </form>
       </div>
     </div>

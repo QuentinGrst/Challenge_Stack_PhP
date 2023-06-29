@@ -8,11 +8,49 @@
 .message {
   color: white;
   padding: 1rem;
-  border: orange solid 6px;
+  border: 6px solid #4caf50;
+  background-color: #4caf50;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  animation: fade-in 0.3s forwards, fade-out 0.3s 0.5s forwards;
 }
 
-.message.success_1 {
-  border-color: greenyellow;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.message.show {
+  opacity: 1;
+  visibility: visible;
+  animation: fade-in 0.3s forwards, fade-out 0.3s forwards;
 }
 
 body {
