@@ -104,15 +104,15 @@
     "controller": "Seller",
     "action": "ShowSellerByUser",
     "method": "GET",
-    "manager": ["Seller"],
-    "auth": ["","client","seller", "admin"]
+    "manager": ["Seller"]
   },
   {
     "path": "/Product/([0-9]*)/Review",
     "controller": "ProductReview",
     "action": "AddReview",
     "method": "POST",
-    "manager": ["ProductReview"]
+    "manager": ["ProductReview"],
+    "auth": ["client", "seller", "admin"]
   },
   {
     "path": "/TestReview",
@@ -178,5 +178,13 @@
     "action": "AddReview",
     "method": "POST",
     "manager": ["SellerReview"]
+  },
+  {
+    "path": "/Product/Archive",
+    "controller": "Product",
+    "action": "ArchiveProduct",
+    "method": "POST",
+    "manager": ["Product"],
+    "auth": ["seller", "admin"]
   }
 ]
