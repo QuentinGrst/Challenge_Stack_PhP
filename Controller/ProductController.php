@@ -30,7 +30,8 @@ class ProductController extends BaseController
             "name" => $name,
             "description" => $description,
             "price" => $price,
-            "picture" => $picture
+            "picture" => $picture,
+            "seller_id" => $_SESSION["user"]->id
         ]);
 
         if ($add) {

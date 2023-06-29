@@ -115,10 +115,10 @@
         "action": "ShowSellerByUser",
         "method": "GET",
         "manager": ["Seller"],
-        "auth": ["seller"]
+        "auth": ["client","seller", "admin"]
     },
     {
-        "path":"/Product/([0-9]*)/Review",
+        "path":"/Product/([0-9]*)/Review",  
         "controller":"ProductReview",
         "action":"AddReview",
         "method": "POST",
