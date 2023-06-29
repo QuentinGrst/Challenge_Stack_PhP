@@ -56,7 +56,7 @@ public function VerifyStatus()
         return false;
     }
     $userId = $_SESSION["user"]->id;
-    $order = $this->orderManager->GetOrderByStatus($userId, 0)[0];
+    $order = $this->orderManager->GetOrderByStatus($userId, 0)[0] ?? null;
     if(!$order)
     {
         $this->orderManager->create((object) [
@@ -64,7 +64,7 @@ public function VerifyStatus()
             "user_id"=>$userId,
             "datetime"=>(new DateTime())->format('c')
         ]);
-        $order = $this->orderManager->GetOrderByStatus($userId, 0)[0];
+        $order = $this->orderManager->GetOrderByStatus($userId, 0)[0] ?? null;
     }
     return $order->id;
 }
@@ -72,10 +72,16 @@ public function VerifyStatus()
 public function ValidateBasket()
 {
     $orderId = $this->VerifyStatus();
-    $this->orderManager->update((object)[
+    $result = $this->orderManager->update((object)[
         "id"=>$orderId,
         "status"=> 1
     ]);
+    $homeController = new homeController((object) ["controller" => 'home']);
+        if ($result) {
+            $homeController->Home(1);
+        } else {
+            $homeController->Home(2);
+        }
 }
 
 
