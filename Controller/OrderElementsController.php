@@ -41,4 +41,27 @@ class OrderElementsController extends BaseController{
             $homeController->Home(2);
         }
     }
+
+    public function DeleteProductToOrder($id)
+    {
+        var_dump($id);
+        $element = $this->orderElementsManager->GetElementToOrder(intval($id));
+        if($_SESSION["user"]->id == $element->user_id)
+        {
+            if($element->quantity == 1)
+            {
+                $result = $this->orderElementsManager->delete($id);
+            }else
+            {
+                $result = $this->orderElementsManager->update((object)[
+                    "id"=>$element->id,
+                    "quantity"=>($element->quantity)-1
+                ]);
+            }
+            if($result)
+            {  
+                header("Location: /Basket");
+            }
+        }
+    }
 }

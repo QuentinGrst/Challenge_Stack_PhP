@@ -46,4 +46,15 @@ class OrderElementsManager extends ModelManager{
         $req->setFetchMode(\PDO::FETCH_OBJ);
         return $req->fetch();
     }
+
+    public function GetElementToOrder($id)
+    {
+        $req = $this->bdd->prepare("SELECT oe.*, o.user_id FROM ". $this->table . " oe
+                                        JOIN orders o ON oe.order_id = o.id
+                                        WHERE oe.id = :id");
+        $req->bindParam(":id",$id);
+        $req->execute();
+        $req->setFetchMode(\PDO::FETCH_OBJ);
+        return $req->fetch();
+    }
 }
