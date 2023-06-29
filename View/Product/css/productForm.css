@@ -1,42 +1,45 @@
-form.add_form{
-    display: flex;
-    padding: 20px 20%;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
+form.add_form {
+  display: flex;
+  padding: 20px 20%;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.form-group input, .form-group select, .form-group textarea{
-    padding: 8px;
-    border-radius: 8px;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
 }
 
-.product-file{
-    width: 100%;
-    min-height: 50px;
-    background-color: white;
-    border-radius: 8px;
-    color: black;
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    cursor: pointer;
-    justify-content: center;
+.product-file {
+  width: 100%;
+  min-height: 50px;
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  justify-content: center;
 }
 
-.product-file input{
-    display: none;
+.product-file input {
+  display: none;
 }
 
-.product-file .picture{
-    display: none;
+.product-file .picture {
+  display: none;
 }
 
-.product-file .picture.show{
-    display: block;
+.product-file .picture.show {
+  display: block;
 }

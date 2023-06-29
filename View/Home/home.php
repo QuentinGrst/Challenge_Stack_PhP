@@ -10,15 +10,17 @@
       </div>
       <div>
         <div>
-          <h4><?=$elem->name?></h4>
-          <h5><a href="/Seller/<?= $elem->seller_id ?>">
-            <?=$elem->seller_name?></a>
-          </h5>
-          <p>Description: 
-            <?=$elem->description?>
+          <h3>
+            <?= $elem->name ?>
+          </h3>
+          <h4><a href="/Seller/<?= $elem->seller_id ?>">
+              <?= $elem->seller_name ?></a>
+          </h4>
+          <p>Description:
+            <?= $elem->description ?>
           </p>
-          <div>Prix: 
-            <?=$elem->price?>€
+          <div>Prix:
+            <?= $elem->price ?>€
           </div>
         </div>
         <form action="/Product/<?= $elem->id ?>/Basket" method="POST">

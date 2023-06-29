@@ -1,5 +1,5 @@
 <form class="add_form" method="POST" action="/Product/New">
-    <h1>Créer un nouveau produit</h1>
+    <h1>ADD PRODUCT</h1>
     <div class="form-group">
         <input required type="text" name="name" placeholder="nom du produit" />
     </div>
