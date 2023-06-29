@@ -10,9 +10,9 @@ class HomeController extends BaseController
         $productElements = $productController->GetProductList();
         $this->addParam('orderElems', $productElements);
         if ($add == 1) {
-            $this->View("home", "Article AJouté au panier", 1);
+            $this->View("home", "Succès", 1);
         } else if ($add == 2) {
-            $this->View("home", "Erreur lors de l'ajout");
+            $this->View("home", "Erreur");
         } else {
             $this->View('home');
         }
