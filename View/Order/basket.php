@@ -9,4 +9,7 @@
             <input type="hidden" name="id" value="<?=$elem->id?>">
         </form>
     <?php endforeach?>
+    <form method="POST" action="/Basket/Validate">
+        <input type="submit" value="Valider la commande">
+    </form>
 </div>

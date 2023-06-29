@@ -69,6 +69,15 @@ public function VerifyStatus()
     return $order->id;
 }
 
+public function ValidateBasket()
+{
+    $orderId = $this->VerifyStatus();
+    $this->orderManager->update((object)[
+        "id"=>$orderId,
+        "status"=> 1
+    ]);
+}
+
 
 
 /*public function OrderForm()

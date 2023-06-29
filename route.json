@@ -164,5 +164,12 @@
     "action": "DeleteProductToOrder",
     "method": "POST",
     "manager": ["OrderElements"]
+  },
+  {
+    "path": "/Basket/Validate",
+    "controller": "Order",
+    "action": "ValidateBasket",
+    "method": "POST",
+    "manager": ["Order"]
   }
 ]
