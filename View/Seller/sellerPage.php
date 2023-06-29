@@ -1,12 +1,24 @@
+<div>
+    <h2>Vendeur</h2>
+</div>
+
 <div class="seller_page">
-    <h2>Page de vendeur</h2>
-    <br>
-    <h3><?= $seller->pseudo ?></h3>
-    <div>Note du vendeur: <?= $rating ?></div>
+    <h3>
+        <?= $seller->pseudo ?>
+    </h3>
+    <div>Note du vendeur:
+        <?= $rating ?>
+    </div>
 
-    <p>Description: <?php if ($seller->description) { echo ($seller->description); } else { echo ('Pas de description'); } ?></p>
+    <p>Description:
+        <?php if ($seller->description) {
+            echo ($seller->description);
+        } else {
+            echo ('Pas de description');
+        } ?>
+    </p>
 
-    <?php if (!$review) : ?>
+    <?php if (!$review): ?>
         <!-- Form for reviewing -->
         <form action="/Seller/Rating" method="POST">
             <div class="rating">
@@ -21,7 +33,7 @@
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1">&#9733;</label>
             </div>
-            <input type="hidden" name="id" value="<?=$seller->id?>" />
+            <input type="hidden" name="id" value="<?= $seller->id ?>" />
             <input type="submit" value="Noter">
         </form>
     <?php endif ?>

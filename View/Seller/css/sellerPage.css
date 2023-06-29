@@ -1,0 +1,85 @@
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 25px;
+  background-color: #f8f8f8;
+}
+
+.seller_page {
+  background-color: #2c3338;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 150px;
+  border: 1px solid white;
+  width: 50%;
+  margin-left: 25px;
+}
+
+.seller_page h2 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.seller_page h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.seller_page p {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.seller_page .rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.seller_page .rating input[type="radio"] {
+  display: none;
+}
+
+.seller_page .rating label {
+  font-size: 24px;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+.seller_page .rating label:hover,
+.seller_page .rating label:hover ~ label,
+.seller_page .rating input[type="radio"]:checked ~ label {
+  color: #ffca08;
+}
+
+.seller_page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seller_page form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.seller_page form input[type="submit"]:hover {
+  background-color: #45a049;
+}
