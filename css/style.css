@@ -90,6 +90,14 @@ nav.role_admin {
   display: flex;
   align-items: center;
   margin-right: 25px;
+
+  width: 25vw;
+  max-width: 200px;
+  min-width: 100px;
+}
+
+.search form {
+  width: 100%;
 }
 
 #search {
@@ -99,7 +107,7 @@ nav.role_admin {
   padding: 5px 10px;
   color: white;
   font-size: 16px;
-  width: 200px;
+  width: 75%;
   transition: border-color 0.3s ease;
 }
 
