@@ -3,7 +3,7 @@
 </div>
 
 <div class="productInventory">
-    <?php foreach ($products as $product) : ?>
+    <?php foreach ($products as $product): ?>
         <div class="product">
             <div class="name">
                 <?= $product->name; ?>
@@ -14,7 +14,9 @@
             <div class="price">
                 <?= $product->price; ?>
             </div>
-            <p><?= $product->seller_id ?></p>
+            <p>
+                <?= $product->seller_id ?>
+            </p>
             <div class="actions">
                 <form action="/Product/Archive" method="POST">
                     <input type="hidden" name="id" value="<?= $product->id ?>">
@@ -24,11 +26,12 @@
         </div>
     <?php endforeach ?>
 </div>
-<div class="inventory-page">
-    <h2>ARCHIVED</h2>
+<div class="separator"></div>
+<div class=" inventory-page">
+    <h3>ARCHIVED</h3>
 </div>
 <div class="productInventory archived">
-    <?php foreach ($archived as $product) : ?>
+    <?php foreach ($archived as $product): ?>
         <div class="product">
             <div class="name">
                 <?= $product->name; ?>

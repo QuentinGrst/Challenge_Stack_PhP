@@ -8,8 +8,7 @@
 .message {
   color: white;
   padding: 1rem;
-  border: 6px solid #4caf50;
-  background-color: #4caf50;
+  border: 6px solid;
   border-radius: 5px;
   text-align: center;
   margin-bottom: 20px;
@@ -23,6 +22,16 @@
   visibility: hidden;
   transition: opacity 1s, visibility 1s;
   animation: fade-in 1s forwards, fade-out 1s 0.5s forwards;
+}
+
+.message.success {
+  border-color: #4caf50;
+  background-color: #4caf50;
+}
+
+.message.error {
+  border-color: orange;
+  background-color: orange;
 }
 
 @keyframes fade-in {
