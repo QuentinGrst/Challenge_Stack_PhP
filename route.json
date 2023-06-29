@@ -169,6 +169,13 @@
         "controller":"Product",
         "action":"AddPicture",
         "method": "POST"
+    },
+    {
+        "auth": ["seller", "admin"],
+        "path": "/Product/Inventaire",
+        "controller": "Product",
+        "action": "ProductInventory",
+        "method": "GET",
+        "manager": ["Product"]
     }
-
 ]
