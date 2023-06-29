@@ -8,7 +8,7 @@
 
     <?php if (!$review) : ?>
         <!-- Form for reviewing -->
-        <form action="" method="POST">
+        <form action="/Seller/Rating" method="POST">
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5">
                 <label for="star5">&#9733;</label>
@@ -21,6 +21,7 @@
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1">&#9733;</label>
             </div>
+            <input type="hidden" name="id" value="<?=$seller->id?>" />
             <input type="submit" value="Noter">
         </form>
     <?php endif ?>

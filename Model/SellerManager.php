@@ -10,7 +10,7 @@ class SellerManager extends ModelManager{
 
     public function getByUserId($id)
     {
-        $req = $this->bdd->prepare("SELECT pseudo, is_seller, description FROM " . $this->table . " WHERE id = :id");
+        $req = $this->bdd->prepare("SELECT id, pseudo, is_seller, description FROM " . $this->table . " WHERE id = :id");
         $req->bindParam(":id", $id);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);

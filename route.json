@@ -105,7 +105,7 @@
     "action": "ShowSellerByUser",
     "method": "GET",
     "manager": ["Seller"],
-    "auth": ["seller"]
+    "auth": ["seller", "client", "admin"]
   },
   {
     "path": "/Product/([0-9]*)/Review",
@@ -171,5 +171,12 @@
     "action": "ValidateBasket",
     "method": "POST",
     "manager": ["Order"]
+  },
+  {
+    "path": "/Seller/Rating",
+    "controller": "SellerReview",
+    "action": "AddReview",
+    "method": "POST",
+    "manager": ["SellerReview"]
   }
 ]
