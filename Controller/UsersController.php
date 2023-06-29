@@ -48,7 +48,7 @@ class UsersController extends BaseController
         }
     }
 
-    function SignIn($mail, $password, $role)
+    function SignIn($mail, $password, $role, $pseudo, $description)
     {
         if (!empty($_SESSION['user'])) {
             header('Location: /');
@@ -61,7 +61,8 @@ class UsersController extends BaseController
         $user = new \stdClass();
         $user->mail = $mail;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
-        $user->pseudo = "test";
+        $user->pseudo = $pseudo;
+        $user->description = $description;
         $user->is_seller = ($role == "vendeur") ? 1 : 0;
         $user->is_admin = 0;
         if ($this->usersManager->create($user)) {

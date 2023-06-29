@@ -13,6 +13,8 @@ class SellerController extends BaseController
 
     public function ShowSellerByUser($id)
     {
-        $sellerList = $this->sellerManager->getByUserId($id);
+        $seller = $this->sellerManager->getByUserId($id);
+        $this->addParam('seller', $seller);
+        $this->View('sellerPage');
     }
 }
