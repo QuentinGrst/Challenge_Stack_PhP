@@ -20,7 +20,7 @@ class SellerReviewManager extends ModelManager{
 
     public function GetAllReviews($sellerId)
     {
-        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE product_id = :sellerId");
+        $req = $this->bdd->prepare("SELECT * FROM " . $this->table . " WHERE seller_id = :sellerId");
         $req->bindParam(":sellerId", $sellerId);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_OBJ);

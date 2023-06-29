@@ -37,7 +37,7 @@ class SellerReviewController extends BaseController
 
     public function GetAverageReview($sellerId)
     {
-        $reviews = $this->productReviewManager->GetAllReviews($sellerId);
+        $reviews = $this->sellerReviewManager->GetAllReviews($sellerId);
         $somme_review = 0;
         $i = 0;
         if($i>0)
@@ -51,5 +51,28 @@ class SellerReviewController extends BaseController
             return $moyenne;
         }
         return;
+    }
+
+    public function getReviewByUser($sellerId, $userId)
+    {
+        $review = $this->sellerReviewManager->VerifyReview($sellerId, $userId);
+        return $review;
+    }
+
+    // Fonction pour générer le code HTML des étoiles
+    function generateStarRating($rating) {
+        $rating = intval($rating);
+        $rating = max(0, min(5, $rating));
+        $output = '';
+        for ($i = 1; $i <= 5; $i++) {
+        if ($rating >= $i) {
+            // Étoile pleine si la note est supérieure ou égale à $i
+            $output .= '&#9733;';
+        } else {
+            // Étoile vide si la note est inférieure à $i
+            $output .= '&#9734;';
+        }
+        }
+        return $output;
     }
 }

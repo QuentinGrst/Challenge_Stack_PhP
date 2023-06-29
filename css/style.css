@@ -110,3 +110,23 @@ a {
 body {
   font: 87.5%/1.5em "Open Sans", sans-serif;
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > input {
+  display: none;
+}
+.rating > label {
+  display: inline-block;
+  font-size: 30px;
+  padding: 5px;
+  color: #ddd;
+  cursor: pointer;
+}
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+  color: #ffca08;
+}
