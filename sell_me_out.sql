@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `user_id` int NOT NULL,
   `datetime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `orders`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `order_elements` (
   `product_id` int NOT NULL,
   `quantity` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `order_elements`
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `state` tinyint NOT NULL DEFAULT '1',
   `picture` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `products`
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `product_reviews` (
   `product_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `sellers` (
   `password` text NOT NULL,
   `is_smo` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `seller_reviews` (
   `seller_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `seller_reviews`
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_mail` (`mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
