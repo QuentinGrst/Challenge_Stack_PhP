@@ -1,4 +1,5 @@
 <div class="order_history">
+    <h2>Historique de commandes :</h2>
     <?php foreach ($orders as $order): ?>
         <?php if (!empty($order)): ?>
             <div class="order status_<?= $order->status ?>">
