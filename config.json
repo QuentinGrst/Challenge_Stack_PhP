@@ -1,8 +1,0 @@
-{
-    "database": {
-        "database": "sell_me_out",
-        "host": "localhost",
-        "user": "root",
-        "password": ""
-    }
-}
