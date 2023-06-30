@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 29 juin 2023 à 20:11
+-- Généré le : ven. 30 juin 2023 à 06:35
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -154,7 +154,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `seller_id`, `stat
 DROP TABLE IF EXISTS `product_reviews`;
 CREATE TABLE IF NOT EXISTS `product_reviews` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `stars` float(1,1) NOT NULL,
+  `stars` int NOT NULL,
   `product_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `sellers` (
 DROP TABLE IF EXISTS `seller_reviews`;
 CREATE TABLE IF NOT EXISTS `seller_reviews` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `stars` float(1,1) NOT NULL,
+  `stars` int NOT NULL,
   `seller_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
@@ -197,10 +197,10 @@ CREATE TABLE IF NOT EXISTS `seller_reviews` (
 --
 
 INSERT INTO `seller_reviews` (`id`, `stars`, `seller_id`, `user_id`) VALUES
-(1, 0.9, 0, 18),
-(2, 0.9, 18, 18),
-(3, 0.9, 18, 19),
-(4, 0.9, 18, 20);
+(1, 1, 0, 18),
+(2, 1, 18, 18),
+(3, 1, 18, 19),
+(4, 1, 18, 20);
 
 -- --------------------------------------------------------
 
