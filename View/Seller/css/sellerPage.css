@@ -18,7 +18,11 @@ h2 {
   margin-top: 150px;
   border: 1px solid white;
   width: 50%;
-  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 150px auto;
 }
 
 .seller_page h2 {
